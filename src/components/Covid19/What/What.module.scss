@@ -1,0 +1,36 @@
+.what-container {
+  margin: 1rem 4rem;
+  padding: 0.5rem 3rem;
+  background-color: var(--mint);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
+  align-items: center;
+  border-radius: 16px;
+  animation: goup 1s forwards;
+  .image-container {
+    img {
+      width: 200px;
+    }
+  }
+  .info-container {
+    .question {
+      text-align: center;
+      span {
+        color: var(--pink);
+      }
+      margin-bottom: 1rem;
+    }
+    .answer {
+      font-size: 20px;
+    }
+  }
+}
+@keyframes goup {
+  0% {
+    transform: translateY(3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

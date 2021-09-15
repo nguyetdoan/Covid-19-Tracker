@@ -1,0 +1,43 @@
+.how-container {
+  margin: 3rem 4rem;
+  animation: goup 2s forwards;
+  .question {
+    text-align: center;
+    margin: 1rem 0;
+    color: white;
+  }
+  .overview {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+  }
+  .main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: start;
+    grid-gap: 2rem;
+    .case {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 8px;
+      color: white;
+      img {
+        height: 200px;
+        margin-bottom: 1rem;
+      }
+      p:nth-child(3) {
+        margin: 1rem;
+      }
+    }
+  }
+}
+@keyframes goup {
+  0% {
+    transform: translateY(3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
