@@ -1,10 +1,11 @@
 .how-container {
-  margin: 3rem 4rem;
-  animation: goup 2s forwards;
+  margin: 2rem 4rem;
+  animation: goup 1.5s forwards;
   .question {
     text-align: center;
     margin: 1rem 0;
     color: white;
+    font-size: 32px;
   }
   .overview {
     text-align: center;
@@ -16,19 +17,26 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: start;
     grid-gap: 2rem;
+
     .case {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 1rem;
-      border-radius: 8px;
+      height: 100%;
+      border-radius: 16px;
       color: white;
+      background-color: var(--pink);
       img {
         height: 200px;
         margin-bottom: 1rem;
       }
       p:nth-child(3) {
         margin: 1rem;
+      }
+      p:nth-child(2) {
+        font-size: 20px;
+        font-weight: bold;
       }
     }
   }
