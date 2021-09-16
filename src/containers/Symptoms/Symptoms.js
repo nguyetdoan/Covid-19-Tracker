@@ -5,12 +5,6 @@ const Symptoms = () => {
     <div className={classes["symptoms-container"]}>
       <div className={classes["image-container"]}>
         <img src="assets/symptoms.png" alt="symptoms" />
-        <p className={classes["symptom-1"]}>FEVER</p>
-        <p className={classes["symptom-2"]}>DYPSNOEA</p>
-        <p className={classes["symptom-3"]}>HEADACHE</p>
-        <p className={classes["symptom-4"]}>RUNNY NOSE</p>
-        <p className={classes["symptom-5"]}>THROAT PAIN</p>
-        <p className={classes["symptom-6"]}>SHAKING CHILLS</p>
       </div>
       <div className={classes["main-content"]}>
         <h1>Symptoms of Coronavirus</h1>

@@ -61,3 +61,17 @@
     transform: translateX(0);
   }
 }
+@media only screen and (max-width: 600px) {
+  .prevention-container {
+    .content-container {
+      margin: 2rem 0rem;
+      justify-items: center;
+      ul {
+        margin: 0;
+      }
+      .image-container {
+        justify-content: center;
+      }
+    }
+  }
+}

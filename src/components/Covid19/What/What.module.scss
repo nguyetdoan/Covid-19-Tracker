@@ -34,3 +34,10 @@
     transform: translateY(0);
   }
 }
+@media only screen and (max-width: 600px) {
+  .what-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 1rem 1rem 0;
+    padding: 0.5rem 1rem;
+  }
+}

@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 const NavBar = () => {
   const [onActive, setOnActive] = useState("home");
   const { pathname } = useHistory().location;
+  const history = useHistory();
   useEffect(() => {
     setOnActive(pathname);
   }, [pathname]);
@@ -11,7 +12,7 @@ const NavBar = () => {
   return (
     <nav className={classes["nav-bar"]}>
       <div className={classes.logo}>
-        <h1>COVID</h1>
+        <h1 onClick={() => history.push("/")}>COVID</h1>
       </div>
       <div className={classes.menu}>
         <Link

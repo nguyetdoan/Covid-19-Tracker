@@ -1,7 +1,7 @@
 .symptoms-container {
   margin: 1rem 4rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: start;
   justify-items: center;
   grid-gap: 2rem;
@@ -11,42 +11,6 @@
     animation: appear-left 1s forwards;
     img {
       width: 100%;
-    }
-    & .symptom-1,
-    .symptom-2,
-    .symptom-3,
-    .symptom-4,
-    .symptom-5,
-    .symptom-6 {
-      position: absolute;
-
-      color: white;
-      font-weight: bold;
-      font-size: 20px;
-    }
-    & .symptom-1 {
-      top: 2rem;
-      left: 2rem;
-    }
-    & .symptom-2 {
-      bottom: 6.5rem;
-      left: 2rem;
-    }
-    & .symptom-3 {
-      top: 0rem;
-      right: 6rem;
-    }
-    & .symptom-4 {
-      top: 5.5rem;
-      right: 0;
-    }
-    & .symptom-5 {
-      bottom: 15rem;
-      right: 0;
-    }
-    & .symptom-6 {
-      bottom: 8rem;
-      right: -2rem;
     }
   }
   .main-content {
@@ -91,5 +55,19 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .symptoms-container {
+    margin: 1rem 1rem 0;
+    .image-container {
+      padding: 1rem;
+    }
+    .main-content {
+      padding: 1rem;
+      ul {
+        margin: 1rem;
+      }
+    }
   }
 }
