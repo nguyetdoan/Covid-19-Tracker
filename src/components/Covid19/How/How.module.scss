@@ -1,6 +1,7 @@
 .how-container {
-  margin: 2rem 4rem;
+  margin: 3rem 4rem;
   animation: goup 1.5s forwards;
+  font-size: 16px;
   .question {
     text-align: center;
     margin: 1rem 0;
@@ -23,13 +24,17 @@
       flex-direction: column;
       align-items: center;
       padding: 1rem;
+      margin-bottom: 2rem;
       height: 100%;
       border-radius: 16px;
       color: white;
-      background-color: var(--pink);
+      background-color: #2b2d34;
       img {
         height: 200px;
         margin-bottom: 1rem;
+      }
+      p {
+        font-size: 20px;
       }
       p:nth-child(3) {
         margin: 1rem;
@@ -47,5 +52,10 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .how-container {
+    margin: 1rem;
   }
 }

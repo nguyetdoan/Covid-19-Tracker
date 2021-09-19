@@ -9,8 +9,9 @@
   .quote {
     width: 100%;
     animation: appear-left 1s forwards;
-    h1 {
+    h1.title {
       font-size: 48px;
+      color: var(--mint);
       span {
         color: var(--pink);
       }

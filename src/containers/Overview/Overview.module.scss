@@ -1,0 +1,22 @@
+.overview__container {
+  margin: 1rem 4rem;
+  & .overview__title {
+    color: var(--mint);
+  }
+  .summary {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+  .date {
+    font-size: 20px;
+  }
+  .charts {
+    margin: 2rem 0;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    justify-items: start;
+  }
+}

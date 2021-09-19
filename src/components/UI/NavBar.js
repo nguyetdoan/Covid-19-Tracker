@@ -12,7 +12,9 @@ const NavBar = () => {
   return (
     <nav className={classes["nav-bar"]}>
       <div className={classes.logo}>
-        <h1 onClick={() => history.push("/")}>COVID</h1>
+        <h1 onClick={() => history.push("/")} className={classes.title}>
+          COVID
+        </h1>
       </div>
       <div className={classes.menu}>
         <Link
@@ -35,20 +37,6 @@ const NavBar = () => {
           onClick={() => setOnActive("/about")}
         >
           About
-        </Link>
-        <Link
-          to="/symptoms"
-          className={`${onActive === "/symptoms" ? classes.active : ""}`}
-          onClick={() => setOnActive("/symptoms")}
-        >
-          Symptoms
-        </Link>
-        <Link
-          to="/prevention"
-          className={`${onActive === "/prevention" ? classes.active : ""}`}
-          onClick={() => setOnActive("/prevention")}
-        >
-          Prevention
         </Link>
       </div>
     </nav>

@@ -1,35 +1,28 @@
 import classes from "./OverViewBoard.module.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { formatNumber } from "../../../service/convert";
-const initialState = {
-  TotalConfirmed: "",
-  TotalDeaths: "",
-  TotalRecovered: "",
-};
-const OverViewBoard = (props) => {
-  const [casesStatus, setCasesStatus] = useState(initialState);
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get("https://api.covid19api.com/summary");
-      setCasesStatus(response.data.Global);
-    })();
-  }, []);
+import Loading from "../../UI/Loading";
+
+const OverViewBoard = ({
+  TotalConfirmed,
+  TotalDeaths,
+  TotalRecovered,
+  loading,
+}) => {
   return (
     <div className={classes["overview-board__container"]}>
-      <div className={classes.case}>
-        <p>{formatNumber(casesStatus.TotalConfirmed)}</p>
-
+      <div className={`${classes.case} ${classes.case1}`}>
+        <p>{formatNumber(TotalConfirmed)}</p>
         <p>Confirmed Cases</p>
       </div>
-      <div className={classes.case}>
-        <p>{formatNumber(casesStatus.TotalRecovered)}</p>
+      <div className={`${classes.case} ${classes.case2}`}>
+        <p>{formatNumber(TotalRecovered)}</p>
         <p>Recovered Cases</p>
       </div>
-      <div className={classes.case}>
-        <p>{formatNumber(casesStatus.TotalDeaths)}</p>
-        <p>Worldwide Deaths</p>
+      <div className={`${classes.case} ${classes.case3}`}>
+        <p>{formatNumber(TotalDeaths)}</p>
+        <p>Dead Cases</p>
       </div>
+      {loading && <Loading />}
     </div>
   );
 };
