@@ -1,9 +1,13 @@
 path.highcharts-button-box {
   display: none;
 }
-
-.highcharts-series .highcharts-point-select {
-  fill: #fff;
-  stroke: #f00;
-  stroke-dasharray: 1000 !important;
+.map-chart {
+  width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .world-map {
+    .highcharts-container {
+      display: none;
+    }
+  }
 }

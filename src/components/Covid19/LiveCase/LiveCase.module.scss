@@ -1,0 +1,40 @@
+.live-case__wrapper {
+  width: 100%;
+  margin-bottom: 2rem;
+  .case-title {
+    background-color: #979797;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    h3 {
+      color: white;
+      font-size: 20px;
+    }
+  }
+  .livecase-table {
+    background-color: #2b2d34;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .data-cases {
+    padding: 1rem 0 1rem 2rem;
+    height: 400px;
+    overflow-y: scroll;
+
+    .case {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      justify-items: start;
+      p {
+        color: white;
+        font-size: 18px;
+      }
+    }
+  }
+  .title {
+    color: var(--mint);
+    text-align: center;
+  }
+}

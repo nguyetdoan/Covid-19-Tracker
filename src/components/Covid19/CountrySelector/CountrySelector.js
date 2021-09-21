@@ -8,7 +8,7 @@ const CountrySelector = ({ countries, value, onChange }) => {
     <div className="container">
       <Select
         showSearch
-        style={{ width: 300 }}
+        style={{ width: "100%" }}
         placeholder="Select a country"
         optionFilterProp="children"
         value={value}

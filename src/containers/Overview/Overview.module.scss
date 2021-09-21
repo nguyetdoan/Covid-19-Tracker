@@ -1,12 +1,12 @@
 .overview__container {
-  margin: 1rem 4rem;
+  margin: 1rem 4rem 4rem;
   & .overview__title {
     color: var(--mint);
   }
   .summary {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-items: start;
   }
   .date {
     font-size: 20px;
@@ -15,8 +15,31 @@
     margin: 2rem 0;
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     align-items: start;
     justify-items: start;
+  }
+  .line-chart,
+  .map-chart {
+    width: 100%;
+  }
+  .update {
+    color: white;
+    width: 50vw;
+    text-align: center;
+    margin: 6rem auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .overview__container {
+    margin: 1rem;
+    .summary {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    .charts {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
   }
 }

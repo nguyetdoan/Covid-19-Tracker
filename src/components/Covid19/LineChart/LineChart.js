@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import moment from "moment";
@@ -8,7 +8,7 @@ const generateOptions = (data) => {
   return {
     chart: {
       type: "line",
-      height: "500px",
+      height: 500,
     },
     title: {
       text: "COVID-19 TRACKER",
@@ -33,20 +33,16 @@ const generateOptions = (data) => {
     },
 
     tooltip: {
-      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      pointFormat:
-        '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-        '<td style="padding:0"><b>{point.y} ca</b></td></tr>',
-      footerFormat: "</table>",
+      backgroundColor: "#2b2d34",
+      borderRadius: 10,
       shared: true,
-      useHTML: true,
     },
     plotOptions: {
       spline: {
-        lineWidth: 4,
+        lineWidth: 2,
         states: {
           hover: {
-            lineWidth: 5,
+            lineWidth: 3,
           },
         },
         marker: {
@@ -58,47 +54,78 @@ const generateOptions = (data) => {
 
     series: [
       {
-        name: "ConfirmedCases",
+        name: "Confirmed Cases",
         data: data.map((item) => item.Confirmed),
+        color: "#ff7b00",
       },
       {
         name: "Recovered Cases",
         data: data.map((item) => item.Recovered),
+        color: "#0aefff",
       },
       {
         name: "Dead Cases",
         data: data.map((item) => item.Deaths),
+        color: "#fc2f00",
       },
     ],
-
-    responsive: {
-      rules: [
-        {
-          condition: {
-            maxWidth: 500,
-          },
-          chartOptions: {
-            legend: {
-              layout: "horizontal",
-              align: "center",
-              verticalAlign: "bottom",
-            },
-          },
-        },
-      ],
-    },
   };
 };
-
+const timeReducer = (state, action) => {
+  let { data } = action;
+  console.log(action);
+  if (action.type === "7") {
+    return {
+      option: generateOptions(data.slice(data.length - 7, data.length - 1)),
+      type: "7",
+    };
+  } else if (action.type === "30") {
+    return {
+      option: generateOptions(data.slice(data.length - 30, data.length - 1)),
+      type: "30",
+    };
+  } else {
+    return { option: generateOptions(data), type: "all" };
+  }
+};
 export default function LineChart({ data }) {
-  const [options, setOptions] = useState({});
+  const [options, dispatchOptions] = useReducer(timeReducer, {});
   useEffect(() => {
-    setOptions(generateOptions(data.slice(data.length - 31, data.length - 1)));
+    dispatchOptions({
+      type: "all",
+      data,
+    });
   }, [data]);
-
+  const handleClick = (e) => {
+    dispatchOptions({ type: e.target.id, data });
+  };
+  const { type, option } = options;
   return (
-    <div id="container">
-      <HighchartsReact highcharts={Highcharts} options={options} />
+    <div className="line-chart">
+      <div className="btns">
+        <button
+          id="all"
+          className={type === "all" ? "active-btn" : ""}
+          onClick={handleClick}
+        >
+          All
+        </button>
+        <button
+          id="30"
+          className={type === "30" ? "active-btn" : ""}
+          onClick={handleClick}
+        >
+          30 days
+        </button>
+        <button
+          id="7"
+          className={type === "7" ? "active-btn" : ""}
+          onClick={handleClick}
+        >
+          7 days
+        </button>
+      </div>
+      <HighchartsReact highcharts={Highcharts} options={option} />
     </div>
   );
 }
