@@ -1,13 +1,23 @@
 import classes from "./Prevention.module.scss";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Prevention = () => {
+  useEffect(() => {
+    AOS.init({
+      useClassNames: true,
+      initClassName: false,
+      animatedClassName: "animated",
+      duration: 2000,
+    });
+  }, []);
   return (
     <div className={classes["prevention-wrapper"]}>
       <div className={classes["prevention-container"]}>
         <h1 className={classes.title}>
           How to protect yourself and prepare for the coronavirus
         </h1>
-        <div className={classes["content-container"]}>
+        <div className={classes["content-container"]} data-aos="fade-up">
           <ul>
             <li>
               <img src="assets/1.png" alt="wearmask" />
@@ -46,9 +56,6 @@ const Prevention = () => {
               </div>
             </li>
           </ul>
-          <div className={classes["image-container"]}>
-            <img src="assets/covid-banner.png" alt="Covid banner" />
-          </div>
         </div>
       </div>
     </div>

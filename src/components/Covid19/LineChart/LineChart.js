@@ -73,7 +73,6 @@ const generateOptions = (data) => {
 };
 const timeReducer = (state, action) => {
   let { data } = action;
-  console.log(action);
   if (action.type === "7") {
     return {
       option: generateOptions(data.slice(data.length - 7, data.length - 1)),

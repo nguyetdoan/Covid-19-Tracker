@@ -4,7 +4,6 @@ import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
 import "./Map.scss";
 
-// Load Highcharts modules
 highchartsMap(Highcharts);
 
 const initOptions = {
@@ -40,28 +39,12 @@ const initOptions = {
       joinBy: ["hc-key", "key"],
     },
   ],
-  responsive: {
-    rules: [
-      {
-        condition: {
-          maxWidth: 500,
-        },
-        chartOptions: {
-          chart: {
-            height: 300,
-          },
-        },
-      },
-    ],
-  },
 };
 
 const HighMaps = ({ mapData, customData }) => {
-  console.log(mapData);
   const [options, setOptions] = useState({});
   const [mapLoaded, setMapLoaded] = useState(false);
   const chartRef = useRef(null);
-
   useEffect(() => {
     if (mapData && Object.keys(mapData).length) {
       let confirmedData = [];
@@ -168,7 +151,7 @@ const HighMaps = ({ mapData, customData }) => {
       });
     }
   }, [options, mapData, mapLoaded]);
-
+  if (!mapLoaded) return null;
   return (
     <div className="map-chart">
       <HighchartsReact

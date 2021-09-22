@@ -23,24 +23,22 @@ export default function Overview() {
   useEffect(() => {
     (async () => {
       if (selectedCountryID) {
+        setLoading(true);
+        const response = await axios.get(
+          `https://api.covid19api.com/total/country/${selectedCountryID}`
+        );
         const mapData = await import(
           `@highcharts/map-collection/countries/${selectedCountryID}/${selectedCountryID}-all.geo.json`
         );
+        setLoading(false);
+        setCasesStatus(response.data[response.data.length - 1]);
+        setDataForChart(response.data);
         setMapData(mapData);
       }
+      return {};
     })();
   }, [selectedCountryID]);
-  useEffect(() => {
-    (async () => {
-      setLoading(true);
-      const response = await axios.get(
-        `https://api.covid19api.com/total/country/${selectedCountryID}`
-      );
-      setLoading(false);
-      setCasesStatus(response.data[response.data.length - 1]);
-      setDataForChart(response.data);
-    })();
-  }, [selectedCountryID]);
+
   const onChangeHandler = (country) => {
     setSelectedCountryID(country.toLowerCase());
   };

@@ -32,11 +32,18 @@ const NavBar = () => {
           Overview
         </Link>
         <Link
-          to="/about"
-          className={`${onActive === "/about" ? classes.active : ""}`}
-          onClick={() => setOnActive("/about")}
+          to="/aboutcovid"
+          className={`${onActive === "/aboutcovid" ? classes.active : ""}`}
+          onClick={() => setOnActive("/aboutcovid")}
         >
-          About
+          About Covid-19
+        </Link>
+        <Link
+          to="/aboutme"
+          className={`${onActive === "/aboutme" ? classes.active : ""}`}
+          onClick={() => setOnActive("/aboutmed")}
+        >
+          About me
         </Link>
       </div>
     </nav>

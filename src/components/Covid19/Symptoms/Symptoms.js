@@ -1,13 +1,23 @@
 import classes from "./Symptoms.module.scss";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Symptoms = () => {
+  useEffect(() => {
+    AOS.init({
+      useClassNames: true,
+      initClassName: false,
+      animatedClassName: "animated",
+      duration: 2000,
+    });
+  }, []);
   return (
     <div className={classes["symptoms-wrapper"]}>
       <div className={classes["symptoms-container"]}>
-        <div className={classes["image-container"]}>
+        <div className={classes["image-container"]} data-aos="fade-up">
           <img src="assets/symptoms.png" alt="symptoms" />
         </div>
-        <div className={classes["main-content"]}>
+        <div className={classes["main-content"]} data-aos="fade-up">
           <h1>Symptoms of Coronavirus</h1>
           <p>
             The COVID-19 virus spreads primarily through droplets of saliva or

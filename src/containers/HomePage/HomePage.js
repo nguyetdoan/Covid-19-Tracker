@@ -6,6 +6,7 @@ import axios from "axios";
 import OverViewBoard from "../../components/Covid19/OverViewBoard/OverViewBoard";
 import "./HomePage.scss";
 import LiveCase from "../../components/Covid19/LiveCase/LiveCase";
+import Loading from "../../components/UI/Loading";
 const initialState = {
   Confirmed: 0,
   Deaths: 0,
@@ -20,13 +21,8 @@ const HomePage = () => {
       const mapData = await import(
         `@highcharts/map-collection/custom/world.geo.json`
       );
-
-      setMapData(mapData);
-    })();
-  }, []);
-  useEffect(() => {
-    (async () => {
       const customData = await axios.get(`https://api.covid19api.com/summary`);
+      setMapData(mapData);
       setCustomData(customData.data.Countries);
       setSummary(customData.data.Global);
     })();
@@ -40,6 +36,7 @@ const HomePage = () => {
           Confirmed={summary.TotalConfirmed}
           Recovered={summary.TotalRecovered}
           Deaths={summary.TotalDeaths}
+          affectedCountries={customData.length}
         />
       </div>
       <div className="world-map">

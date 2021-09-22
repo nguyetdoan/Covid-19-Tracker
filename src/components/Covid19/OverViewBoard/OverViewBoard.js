@@ -2,9 +2,21 @@ import classes from "./OverViewBoard.module.scss";
 import { formatNumber } from "../../../service/convert";
 import Loading from "../../UI/Loading";
 
-const OverViewBoard = ({ Confirmed, Deaths, Recovered, loading }) => {
+const OverViewBoard = ({
+  Confirmed,
+  Deaths,
+  Recovered,
+  loading,
+  affectedCountries,
+}) => {
   return (
     <div className={classes["overview-board__container"]}>
+      {affectedCountries && (
+        <div className={`${classes.case} ${classes.case0}`}>
+          <p>{affectedCountries}</p>
+          <p>Affected Countries</p>
+        </div>
+      )}
       <div className={`${classes.case} ${classes.case1}`}>
         <p>{formatNumber(Confirmed)}</p>
         <p>Confirmed Cases</p>

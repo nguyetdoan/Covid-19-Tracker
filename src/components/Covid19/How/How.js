@@ -1,6 +1,16 @@
 import classes from "./How.module.scss";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const How = () => {
+  useEffect(() => {
+    AOS.init({
+      useClassNames: true,
+      initClassName: false,
+      animatedClassName: "animated",
+      duration: 2000,
+    });
+  }, []);
   return (
     <div className={classes["how-container"]}>
       <h1 className={classes.question}>How coronavirus spread</h1>
@@ -9,7 +19,7 @@ const How = () => {
         close proximity, similar to other respiratory illnesses, such as the
         flu.
       </p>
-      <div className={classes["main-content"]}>
+      <div className={classes["main-content"]} data-aos="fade-up">
         <div className={classes.case}>
           <img src="assets/Cough.png" alt="cough" />
           <p>Air transmission by cough or sneeze</p>
