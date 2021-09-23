@@ -39,11 +39,13 @@
     .sign::before {
       top: 0;
       transform: rotate(45deg);
+      background-color: var(--pink);
     }
 
     .sign::after {
       top: 0;
       transform: rotate(-45deg);
+      background-color: var(--pink);
     }
     .menu-list {
       transform: scale(1, 1);
