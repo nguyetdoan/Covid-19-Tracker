@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./NavBar.module.scss";
 import { Link, useHistory } from "react-router-dom";
+import MenuList from "./MenuListMb/MenuList";
 const NavBar = () => {
   const [onActive, setOnActive] = useState("home");
   const { pathname } = useHistory().location;
@@ -41,10 +42,13 @@ const NavBar = () => {
         <Link
           to="/aboutme"
           className={`${onActive === "/aboutme" ? classes.active : ""}`}
-          onClick={() => setOnActive("/aboutmed")}
+          onClick={() => setOnActive("/aboutme")}
         >
           About me
         </Link>
+      </div>
+      <div className={classes.mobile}>
+        <MenuList />
       </div>
     </nav>
   );

@@ -151,7 +151,7 @@ const HighMaps = ({ mapData, customData }) => {
       });
     }
   }, [options, mapData, mapLoaded]);
-  if (!mapLoaded) return null;
+  // if (!mapLoaded) return null;
   return (
     <div className="map-chart">
       <HighchartsReact

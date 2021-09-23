@@ -11,6 +11,8 @@
     color: var(--mint);
     font-family: "Bigelow Rules", cursive;
     cursor: pointer;
+    position: relative;
+    z-index: 1000;
     img {
       width: 4rem;
       margin-right: 1rem;
@@ -43,12 +45,18 @@
       }
     }
   }
+  .mobile {
+    display: none;
+  }
 }
 @media only screen and (max-width: 600px) {
   .nav-bar {
     padding: 1rem 1rem;
     .menu {
       display: none;
+    }
+    .mobile {
+      display: block;
     }
   }
 }

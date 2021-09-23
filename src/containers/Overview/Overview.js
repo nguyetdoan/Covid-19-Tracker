@@ -1,11 +1,11 @@
 import React from "react";
 import CountrySelector from "../../components/Covid19/CountrySelector/CountrySelector";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import classes from "./Overview.module.scss";
 import OverViewBoard from "../../components/Covid19/OverViewBoard/OverViewBoard";
 import LineChart from "../../components/Covid19/LineChart/LineChart";
 import Map from "../../components/Covid19/Map/Map";
+import getData from "../../service/api";
 
 const initialState = {
   Confirmed: 0,
@@ -24,12 +24,8 @@ export default function Overview() {
     (async () => {
       if (selectedCountryID) {
         setLoading(true);
-        const response = await axios.get(
-          `https://api.covid19api.com/total/country/${selectedCountryID}`
-        );
-        const mapData = await import(
-          `@highcharts/map-collection/countries/${selectedCountryID}/${selectedCountryID}-all.geo.json`
-        );
+        const response = await getData.getCaseStatus(selectedCountryID);
+        const mapData = await getData.getMapData(selectedCountryID);
         setLoading(false);
         setCasesStatus(response.data[response.data.length - 1]);
         setDataForChart(response.data);
@@ -43,9 +39,7 @@ export default function Overview() {
     setSelectedCountryID(country.toLowerCase());
   };
   useEffect(() => {
-    axios
-      .get("https://api.covid19api.com/countries")
-      .then((response) => setCountries(response.data));
+    getData.getCountries().then((response) => setCountries(response));
   }, []);
   return (
     <div className={classes["overview__container"]}>

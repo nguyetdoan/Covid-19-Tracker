@@ -2,91 +2,56 @@
   margin: 4rem;
   display: grid;
   place-items: center;
+  .title {
+    color: white;
+    text-align: center;
+  }
   .prevention-container {
-    .title {
-      color: white;
-      text-align: center;
-      // animation: godown 1s forwards;
-    }
-    .content-container {
-      margin: 2rem 10rem;
+    ul {
+      width: 75vw;
+      margin: 2rem auto 4rem;
+      animation: appear-left 1s forwards;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      justify-items: start;
-      align-items: center;
-      .image-container {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+      justify-items: center;
+      grid-gap: 2rem;
+      li {
+        width: 100%;
+        height: 100%;
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 16px;
+        padding: 1rem 0;
+        background-color: #2b2d34;
         img {
-          width: 90%;
+          width: 70%;
+          margin-bottom: 1rem;
         }
-        // animation: appear-right 1s forwards;
-      }
-
-      ul {
-        animation: appear-left 1s forwards;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        align-items: start;
-        justify-items: center;
-        grid-gap: 2rem;
-        li {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          img {
-            width: 80%;
-            margin-bottom: 1rem;
-          }
-          h2,
-          p {
-            font-size: 20px;
-            color: white;
-          }
+        h2,
+        p {
+          font-size: 20px;
+          color: white;
         }
       }
     }
   }
 }
-// @keyframes godown {
-//   0% {
-//     transform: translateY(-3rem);
-//   }
-//   100% {
-//     transform: translateY(0);
-//   }
-// }
-// @keyframes appear-left {
-//   0% {
-//     transform: translateX(-5rem);
-//   }
-//   100% {
-//     transform: translateX(0);
-//   }
-// }
-// @keyframes appear-right {
-//   0% {
-//     transform: translateX(5rem);
-//   }
-//   100% {
-//     transform: translateX(0);
-//   }
-// }
+
 @media only screen and (max-width: 600px) {
   .prevention-wrapper {
     margin: 2rem 1rem;
     .prevention-container {
-      .content-container {
-        margin: 2rem 0rem;
-        justify-items: center;
-        ul {
-          margin: 1rem;
-          p {
-            font-size: 16px;
-          }
-        }
-        .image-container {
-          justify-content: center;
+      margin: 2rem 0rem;
+      justify-items: center;
+      ul {
+        margin: 0;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+        p {
+          font-size: 16px;
+          text-align: center;
         }
       }
     }

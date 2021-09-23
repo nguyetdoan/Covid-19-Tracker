@@ -1,11 +1,10 @@
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin: 4rem;
-  grid-gap: 2rem;
+  margin: 4rem 8rem;
   align-items: center;
   img {
-    width: 80%;
+    width: 75%;
     justify-self: end;
   }
 
@@ -43,10 +42,12 @@
   .container {
     display: flex;
     flex-direction: column-reverse;
+    margin: 1rem 2rem;
     .introduction {
+      width: 100%;
       align-self: start;
       ul {
-        align-self: center;
+        margin: 0 auto;
       }
     }
   }

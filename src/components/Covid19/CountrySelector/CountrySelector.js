@@ -19,7 +19,9 @@ const CountrySelector = ({ countries, value, onChange }) => {
         loading={false}
       >
         {countries.map(({ Country, ISO2 }) => (
-          <Option value={ISO2.toLowerCase()}>{Country}</Option>
+          <Option key={ISO2} value={ISO2.toLowerCase()}>
+            {Country}
+          </Option>
         ))}
       </Select>
     </div>

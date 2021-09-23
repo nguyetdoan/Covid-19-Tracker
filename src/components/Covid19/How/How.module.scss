@@ -46,14 +46,7 @@
     }
   }
 }
-@keyframes goup {
-  0% {
-    transform: translateY(3rem);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
+
 @media only screen and (max-width: 600px) {
   .how-container {
     margin: 1rem;

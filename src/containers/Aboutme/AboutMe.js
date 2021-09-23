@@ -1,7 +1,15 @@
 import classes from "./AboutMe.module.scss";
 import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const AboutMe = () => {
   const [intro, setIntro] = useState("");
+  AOS.init({
+    useClassNames: true,
+    initClassName: false,
+    animatedClassName: "animated",
+    duration: 2000,
+  });
   useEffect(() => {
     let arrName = "My name is Nguyet. I'm a Frontend Developer.";
 
@@ -32,7 +40,7 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} data-aos="fade-up">
       <div className={classes.introduction}>
         <div className={classes.text}>
           <h1>Hello,</h1>

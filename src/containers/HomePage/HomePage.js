@@ -2,11 +2,10 @@ import Cover from "../../components/UI/Cover";
 import React from "react";
 import { useEffect, useState } from "react";
 import Map from "../../components/Covid19/Map/Map";
-import axios from "axios";
 import OverViewBoard from "../../components/Covid19/OverViewBoard/OverViewBoard";
 import "./HomePage.scss";
 import LiveCase from "../../components/Covid19/LiveCase/LiveCase";
-import Loading from "../../components/UI/Loading";
+import getData from "../../service/api";
 const initialState = {
   Confirmed: 0,
   Deaths: 0,
@@ -21,7 +20,7 @@ const HomePage = () => {
       const mapData = await import(
         `@highcharts/map-collection/custom/world.geo.json`
       );
-      const customData = await axios.get(`https://api.covid19api.com/summary`);
+      const customData = await getData.getSummary();
       setMapData(mapData);
       setCustomData(customData.data.Countries);
       setSummary(customData.data.Global);

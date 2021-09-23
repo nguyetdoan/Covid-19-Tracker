@@ -13,7 +13,7 @@ const About = () => {
     <Fragment>
       <What />
       <How />
-      <Symptoms data-aos="fade-up" />
+      <Symptoms />
       <Prevention />
     </Fragment>
   );
