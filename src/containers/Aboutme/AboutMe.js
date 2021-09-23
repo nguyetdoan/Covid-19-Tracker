@@ -63,7 +63,7 @@ const AboutMe = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i class="fab fa-github"></i>
+              <i className="fab fa-github"></i>
             </a>
           </li>
           <li>
@@ -72,7 +72,7 @@ const AboutMe = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i class="fab fa-linkedin"></i>
+              <i className="fab fa-linkedin"></i>
             </a>
           </li>
         </ul>

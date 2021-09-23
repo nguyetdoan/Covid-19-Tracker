@@ -11,7 +11,7 @@ const LiveCase = ({ countries }) => {
         </div>
         <div className={classes["data-cases"]}>
           {countries.map((country) => (
-            <div className={classes.case}>
+            <div className={classes.case} key={country.Country}>
               <p>{country.Country}</p>
               <p>{country.TotalConfirmed}</p>
             </div>

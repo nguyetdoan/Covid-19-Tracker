@@ -13,20 +13,28 @@ const MenuList = () => {
         <div className={classes["sign"]}></div>
       </div>
       <div className={classes["menu-list"]}>
-        <Link to="/" className={classes.item1} onClick={activeHandler}>
+        <Link to="/" className={classes.item1} onClick={() => setActive(false)}>
           Home
         </Link>
-        <Link to="/overview" className={classes.item2} onClick={activeHandler}>
+        <Link
+          to="/overview"
+          className={classes.item2}
+          onClick={() => setActive(false)}
+        >
           Overview
         </Link>
         <Link
           to="/aboutcovid"
           className={classes.item3}
-          onClick={activeHandler}
+          onClick={() => setActive(false)}
         >
           About Covid-19
         </Link>
-        <Link to="/aboutme" className={classes.item4} onClick={activeHandler}>
+        <Link
+          to="/aboutme"
+          className={classes.item4}
+          onClick={() => setActive(false)}
+        >
           About me
         </Link>
       </div>

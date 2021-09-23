@@ -13,8 +13,10 @@ const How = () => {
   }, []);
   return (
     <div className={classes["how-container"]}>
-      <h1 className={classes.question}>How coronavirus spread</h1>
-      <p className={classes.overview}>
+      <h1 className={classes.question} data-aos="fade-up">
+        How coronavirus spread
+      </h1>
+      <p className={classes.overview} data-aos="fade-up">
         The coronavirus - known as COVID-19 - spreads from person to person in
         close proximity, similar to other respiratory illnesses, such as the
         flu.

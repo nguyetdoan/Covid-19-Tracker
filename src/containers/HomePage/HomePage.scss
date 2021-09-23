@@ -7,7 +7,7 @@
     display: none;
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
   .world-map {
     margin: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
