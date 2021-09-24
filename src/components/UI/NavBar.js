@@ -10,7 +10,6 @@ const NavBar = () => {
   useEffect(() => {
     setOnActive(pathname);
   }, [pathname]);
-  console.log("update");
   return (
     <nav className={classes["nav-bar"]}>
       <div className={classes.logo}>
