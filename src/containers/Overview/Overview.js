@@ -6,6 +6,7 @@ import OverViewBoard from "../../components/Covid19/OverViewBoard/OverViewBoard"
 import LineChart from "../../components/Covid19/LineChart/LineChart";
 import Map from "../../components/Covid19/Map/Map";
 import getData from "../../service/api";
+import Modal from "../../components/UI/Modal/Modal";
 
 const initialState = {
   Confirmed: 0,
@@ -19,19 +20,41 @@ export default function Overview() {
   const [dataForChart, setDataForChart] = useState([]);
   const [isloading, setLoading] = useState(false);
   const [mapData, setMapData] = useState({});
-
+  const [onWrong, setWrong] = useState(false);
   useEffect(() => {
     (async () => {
-      if (selectedCountryID) {
-        setLoading(true);
-        const response = await getData.getCaseStatus(selectedCountryID);
-        const mapData = await getData.getMapData(selectedCountryID);
+      let response, mapData;
+      try {
+        if (selectedCountryID) {
+          setLoading(true);
+          response = await getData.getCaseStatus(selectedCountryID);
+          mapData = await getData.getMapData(selectedCountryID);
+          setLoading(false);
+          if (response.data.length === 0) {
+            setWrong(true);
+            setCasesStatus(initialState);
+            setDataForChart(response.data);
+            setMapData(mapData);
+            return;
+          }
+          setCasesStatus(response.data[response.data.length - 1]);
+          setDataForChart(response.data);
+          setMapData(mapData);
+        }
+        return {};
+      } catch (err) {
         setLoading(false);
-        setCasesStatus(response.data[response.data.length - 1]);
-        setDataForChart(response.data);
-        setMapData(mapData);
+        if (response.data.length === 0) {
+          setWrong(true);
+          setCasesStatus(initialState);
+          setDataForChart([]);
+          setMapData({});
+        } else {
+          setCasesStatus(response.data[response.data.length - 1]);
+          setDataForChart(response.data);
+          setMapData({});
+        }
       }
-      return {};
     })();
   }, [selectedCountryID]);
 
@@ -41,6 +64,9 @@ export default function Overview() {
   useEffect(() => {
     getData.getCountries().then((response) => setCountries(response));
   }, []);
+  const modalHandler = () => {
+    setWrong(false);
+  };
   return (
     <div className={classes["overview__container"]}>
       <div className={classes.summary}>
@@ -57,14 +83,22 @@ export default function Overview() {
         </div>
         <OverViewBoard {...casesStatus} loading={isloading} />
       </div>
-      {dataForChart.length > 0 ? (
+      {(dataForChart.length && mapData.features) || dataForChart.length ? (
         <div className={classes.charts}>
           <LineChart data={dataForChart} />
-          <Map mapData={mapData} />
+          {mapData.features ? (
+            <Map mapData={mapData} />
+          ) : (
+            <p className={classes.update}>Not updated yet</p>
+          )}
         </div>
       ) : (
-        <h1 className={classes["update"]}>It's not update yet</h1>
+        <p className={classes.update}>Not updated yet</p>
       )}
+
+      <Modal className={onWrong ? "active" : ""} onClick={modalHandler}>
+        Data hasn't updated yet. Please choose another country.
+      </Modal>
     </div>
   );
 }

@@ -67,6 +67,8 @@
     position: fixed;
     z-index: 100;
     inset: 0;
+    width: 100vw;
+    height: 100vh;
     background-color: #121212;
     display: flex;
     flex-direction: column;
@@ -82,7 +84,8 @@
       color: var(--mint);
       margin: 1rem 0;
       opacity: 0;
-      &:active {
+      &:active,
+      &:hover {
         color: var(--pink);
       }
     }

@@ -17,17 +17,16 @@
     grid-gap: 2rem;
     grid-template-columns: 1.5fr 1fr;
     align-items: start;
-    justify-items: start;
+    justify-items: center;
   }
-  .line-chart,
-  .map-chart {
-    width: 100%;
-  }
+
   .update {
     color: white;
-    width: 50vw;
     text-align: center;
-    margin: 6rem auto;
+    text-align: center;
+    font-size: 24px;
+    margin: 4rem;
+    align-self: center;
   }
 }
 @media only screen and (max-width: 1024px) {

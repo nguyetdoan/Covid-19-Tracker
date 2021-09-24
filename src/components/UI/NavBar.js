@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classes from "./NavBar.module.scss";
 import { Link, useHistory } from "react-router-dom";
-import MenuList from "./MenuListMb/MenuList";
+import MenuList from "./MenuList/MenuList";
+
 const NavBar = () => {
   const [onActive, setOnActive] = useState("home");
   const { pathname } = useHistory().location;
@@ -9,11 +10,17 @@ const NavBar = () => {
   useEffect(() => {
     setOnActive(pathname);
   }, [pathname]);
-
+  console.log("update");
   return (
     <nav className={classes["nav-bar"]}>
       <div className={classes.logo}>
-        <h1 onClick={() => history.push("/")} className={classes.title}>
+        <h1
+          onClick={() => {
+            history.push("/");
+            setOnActive("/");
+          }}
+          className={classes.title}
+        >
           COVID
         </h1>
       </div>
