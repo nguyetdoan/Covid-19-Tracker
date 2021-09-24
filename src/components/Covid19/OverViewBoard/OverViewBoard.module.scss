@@ -46,3 +46,12 @@
     }
   }
 }
+@media only screen and (max-width: 768px) {
+  .overview-board__container {
+    .case {
+      &.case2 {
+        margin: 1rem 0 0 2rem;
+      }
+    }
+  }
+}

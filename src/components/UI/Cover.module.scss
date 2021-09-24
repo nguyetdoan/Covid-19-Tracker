@@ -116,6 +116,9 @@
       position: relative;
       z-index: 9;
       animation: godown 1s forwards;
+      img {
+        width: 100%;
+      }
     }
   }
 }
