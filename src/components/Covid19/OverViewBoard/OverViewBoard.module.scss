@@ -1,12 +1,13 @@
 .overview-board__container {
-  display: flex;
-  width: 100%;
+  display: grid;
+  width: 75%;
+  margin: 2rem auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   text-align: center;
   font-size: 18px;
-  padding: 1rem;
-  border-radius: 16px;
   color: black;
   font-weight: bold;
   flex-wrap: wrap;
@@ -22,36 +23,15 @@
     width: 200px;
     padding: 0.5rem 1rem;
     border-radius: 16px;
-    margin-top: 1rem;
     background-color: #2b2d34;
     color: white;
-    &.case2 {
-      margin: 1rem 2rem 0;
-    }
-    &.case0 {
-      margin-right: 2rem;
-    }
   }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
   .overview-board__container {
+    width: 90%;
     .case {
       width: 100%;
-      &.case2 {
-        margin: 1rem 0 0;
-      }
-      &.case0 {
-        margin-right: 0;
-      }
-    }
-  }
-}
-@media only screen and (max-width: 768px) {
-  .overview-board__container {
-    .case {
-      &.case2 {
-        margin: 1rem 0 0 2rem;
-      }
     }
   }
 }
