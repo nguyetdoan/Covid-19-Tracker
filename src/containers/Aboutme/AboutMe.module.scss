@@ -1,14 +1,12 @@
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin: 4rem 8rem;
+  margin: 2rem 8rem;
   align-items: center;
-  img {
-    width: 75%;
-    justify-self: end;
-  }
-
+  justify-items: center;
   .introduction {
+    justify-self: start;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,9 +14,6 @@
       color: var(--mint);
       font-size: 40px;
       letter-spacing: 5px;
-    }
-    .text {
-      height: 50vh;
     }
     ul {
       display: flex;
@@ -37,12 +32,36 @@
       }
     }
   }
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    img {
+      width: 75%;
+    }
+  }
 }
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 1024px) {
   .container {
-    margin: 1rem 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 3rem 2rem 2rem;
+    align-items: center;
+    justify-content: start;
+
     .introduction {
-      min-height: 75vh;
+      width: 100%;
+      min-width: 50vh;
+      align-self: start;
+      h1 {
+        font-size: 40px;
+        letter-spacing: 2px;
+      }
+      h2 {
+        display: none;
+      }
       ul {
         position: absolute;
         top: -4rem;
@@ -50,22 +69,22 @@
         transform: translateX(-50%);
       }
     }
+    .image-container {
+      display: grid;
+      place-items: center;
+    }
   }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 600px) {
   .container {
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 4rem;
+    min-height: 100vh;
+
+    margin: 1fr;
     .introduction {
-      width: 100%;
-      align-self: start;
-      ul {
-        margin: 0 auto;
+      h1 {
+        font-size: 32px;
       }
-      .text {
-        height: 30vh;
-      }
+      padding: 1rem 0;
     }
   }
 }
