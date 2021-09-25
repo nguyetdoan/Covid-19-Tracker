@@ -1,1 +1,1 @@
-Check it out here: https://github.com/nguyetdoan/MinhNguyetProjectCI.git
+Check it out here: https://nguyet-covid19tracker.netlify.app/
