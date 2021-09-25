@@ -10,8 +10,7 @@ const AboutMe = () => {
     animatedClassName: "animated",
     duration: 2000,
   });
-  let arrName =
-    "My name is Nguyet. I'm trying to be a great Frontend Developer.";
+  let arrName = "My name is Nguyet. I'm trying to be a Frontend Developer.";
   useEffect(() => {
     const setIn = setTimeout(() => {
       let name = "";
@@ -78,7 +77,7 @@ const AboutMe = () => {
           </ul>
         </div>
       </div>
-      <div class={classes["image-container"]}>
+      <div className={classes["image-container"]}>
         <img src="assets/avt.png" alt="avatar" />
       </div>
     </div>
