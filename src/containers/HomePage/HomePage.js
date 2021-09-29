@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import Map from "../../components/Covid19/Map/Map";
 import OverViewBoard from "../../components/Covid19/OverViewBoard/OverViewBoard";
 import "./HomePage.scss";
-import LiveCase from "../../components/Covid19/LiveCase/LiveCase";
 import getData from "../../service/api";
 const initialState = {
-  Confirmed: 0,
-  Deaths: 0,
-  Recovered: 0,
+  TotalConfirmed: 0,
+  TotalDeaths: 0,
+  TotalRecovered: 0,
 };
 const HomePage = () => {
   const [mapData, setMapData] = useState({});
@@ -40,7 +39,6 @@ const HomePage = () => {
       </div>
       <div className="world-map">
         <Map mapData={mapData} customData={customData} />
-        <LiveCase countries={customData} summary={summary} />
       </div>
     </div>
   );

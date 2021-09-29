@@ -11,7 +11,7 @@ const OverViewBoard = ({
 }) => {
   return (
     <div className={classes["overview-board__container"]}>
-      {affectedCountries && (
+      {affectedCountries !== undefined && (
         <div className={`${classes.case} ${classes.case0}`}>
           <p>{affectedCountries}</p>
           <p>Affected Countries</p>

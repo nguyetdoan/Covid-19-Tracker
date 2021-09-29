@@ -55,9 +55,9 @@ export default function Overview() {
           setMapData({});
         }
       }
-    })();
+    })()
   }, [selectedCountryID]);
-
+  
   const onChangeHandler = (country) => {
     setSelectedCountryID(country.toLowerCase());
   };
@@ -67,6 +67,7 @@ export default function Overview() {
   const modalHandler = () => {
     setWrong(false);
   };
+
   return (
     <div className={classes["overview__container"]}>
       <div className={classes.summary}>

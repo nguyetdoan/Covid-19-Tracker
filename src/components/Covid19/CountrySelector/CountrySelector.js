@@ -1,6 +1,5 @@
 import { Select } from "antd";
 import "antd/dist/antd.css";
-import "./CountrySelector.scss";
 const { Option } = Select;
 
 const CountrySelector = ({ countries, value, onChange }) => {
